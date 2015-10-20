@@ -1,4 +1,4 @@
-Prov::Application.routes.draw do
+ImageSharingService::Application.routes.draw do
 
   get "comment/new"
   get "comment/delete"

@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Prov::Application.config.secret_key_base = '8d6c9601e9aa3359526345d4128fb6cbd387ba0b05069282579b746052f1c8ff147d745b83891f0d64ff8f59551f772b2e21d89aa05ec22fdadac87a2705f071'
+ImageSharingService::Application.config.secret_key_base = '8d6c9601e9aa3359526345d4128fb6cbd387ba0b05069282579b746052f1c8ff147d745b83891f0d64ff8f59551f772b2e21d89aa05ec22fdadac87a2705f071'

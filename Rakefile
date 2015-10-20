@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Prov::Application.load_tasks
+ImageSharingService::Application.load_tasks
