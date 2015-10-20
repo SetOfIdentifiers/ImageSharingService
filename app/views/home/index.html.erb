@@ -1,0 +1,19 @@
+<!-- The main page of the side, various subviews are rendered from this point -->
+<!-- Area for flash messages sent by controllers to show up -->
+<% if flash[:message] %>
+   <i><%= flash[:message] %></i>
+ <% end %>
+<% if flash[:error] %>
+    <font color = "red"> <%= flash[:error] %></font>
+<% end %>
+<H1> Image Sharing Service </H1>
+<!-- Only render this if there if the user is not logged in -->
+<%if @user.nil?%>
+	<%= render :template => "home/login" %>
+<% else %>
+<!-- Consequently, if the user is logged in and only if the user is logged in, there should be an option to log out -->
+	<%= render :template => "home/logout" %>
+	<%= render :template => "home/upload" %>
+<% end %>
+<%= render :template => "home/register" %>
+<%= render :template => "home/randomize" %>

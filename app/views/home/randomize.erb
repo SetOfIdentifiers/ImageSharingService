@@ -1,0 +1,17 @@
+<H2> Image view </H2>
+
+<%= form_tag(image_randomize_path , method: "post") do %>
+	<%= submit_tag("Randomize") %><br>
+<% end %>
+<hr>
+
+<% if(!@img.nil?) %>
+<H4><b>
+Name: <%= @image.name %><br>
+Uploader: <%= link_to @uploader.name, "/user/" + @uploader.id.to_s %> <br>
+Rating: <%= @rating %>
+</b></H4>
+<%= image_tag "/image/" + @img.to_s  %>
+<%= render :template => "home/rate" %>
+<%= render :template => "home/comments" %>
+<% end %>

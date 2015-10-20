@@ -1,0 +1,18 @@
+<H2> Image uploaded by <%=@user.name%> </H2>
+<hr>
+<% @images.each do |image| %>
+	<H4><b>
+	Name: <%= image.name %><br>
+	</b></H4>
+	<%= image_tag "/image/" + image.id.to_s  %>
+	
+	<% if(@is_owner) %>
+		<br>
+		<%= form_tag(image_delete_path, method: "post") do %>
+		<%= hidden_field_tag :id, image.id %>
+		<%= submit_tag("Delete") %>
+	<% end %>
+	<hr>
+<% end %>
+<% end %>
+<%= link_to "Back to index", home_index_path %>

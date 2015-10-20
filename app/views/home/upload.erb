@@ -1,0 +1,12 @@
+<H3> Image view </H3>
+
+<%= link_to "View my images", "/user/" + @user.id.to_s %><br><br>
+<hr>
+<H3> Upload an image </H3>
+
+<%= form_tag(image_new_path, :multipart => true, method: "post") do %>
+	<%= label_tag(:name, "File:") %>
+	<%= file_field_tag "file" %>
+	<%= submit_tag("Submit") %>
+<% end %>	
+<hr>

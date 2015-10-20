@@ -1,0 +1,22 @@
+<H3> Image comments </H2>
+<% @comments.each do |f| %>
+		<% if User.where("id = ?", f.author).empty? %>
+		???
+		<% else %>
+		<%= link_to User.find(f.author).name, "/user/" + f.author.to_s %>
+		<% end %>
+		: <%= f.contents %> <br>
+	<% end %>
+
+<% if !@user.nil? %>
+<%= form_tag(comment_new_path , method: "post") do %>
+	<%= hidden_field_tag :image_id, @image.id %>
+	<%= hidden_field_tag :user_id, @user.id %>
+	
+	<hr>
+	<H3> Write a comment: </H3>
+	<%= text_area_tag(:contents, "Enter message here", size: "30x2") %>
+	<%= submit_tag("Reply") %>
+<% end %>	
+<hr>
+<% end %>

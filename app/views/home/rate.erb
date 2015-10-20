@@ -1,0 +1,10 @@
+<hr>
+<%= form_tag(image_rate_path , method: "post") do %>
+	<%= hidden_field_tag :id, @img %>
+	<% (1..10).each do |f| %>
+		<%= f %>
+		<%= radio_button_tag 'rating', f %>
+	<% end %>
+	<%= submit_tag("Rate") %>
+<% end %>	
+<hr>
