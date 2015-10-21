@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
+
   def index
-  
     # Get user reference if session cookie exists
 	
 	@user = nil
@@ -8,10 +8,14 @@ class HomeController < ApplicationController
 	@uploaderName = nil
     
 	   if(!session[SESSION_ACTIVE_USER].nil?)
-	 	   @user = User.find(session[SESSION_ACTIVE_USER]) # Find the user reference from the id from the session cookie
+           begin
+               @user = User.find(session[SESSION_ACTIVE_USER]) # Find the user reference from the id from the session cookie
+           rescue
+               session[SESSION_ACTIVE_USER] = nil
+           end
  	   end
 	   
-	   # Set image and associated references to be dependant on session cookies
+	   # Set image and associated references to be dependent on session cookies
 	   
 	   if(!session[SESSION_IMAGE].nil?)
            if(Image.exists?(session[SESSION_IMAGE]))
@@ -24,4 +28,5 @@ class HomeController < ApplicationController
  	   end
 	   
    end
+   
 end
